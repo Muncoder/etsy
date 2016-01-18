@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+<% @listings.each do |listing| %>
+    <div class="col-md-4">
+      <%= image_tag listing.image.url(:medium) %>
+      <p class="text-center">
+         <%= listing.name %>
+      </p>
+      <p class="text-center">
+        <%= listing.description %>
+      </p>
+      <p>
+        <%= link_to 'Show', listing, class: "btn btn-xs btn-primary" %>
+        <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-xs btn-primary" %>
+        <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+      </p>
+    </div>
+<% end %>
+</div>
+<br>
+<%= link_to 'New Listing', new_listing_path %>
